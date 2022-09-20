@@ -1,7 +1,7 @@
 {
-    "name": "This is Inline Search Bot by @KGN_OFFICIAL",
-    "logo": "https://telegra.ph/file/5348ee6f73f835d7ed738.jpg", 
-    "description": "This is Inline Channel Messages Search Bot by @KGN_OFFICIAL",
+    "name": "This is Inline Search Bot by @Am_RoBots",
+    "logo": "https://telegra.ph/file/3e9fb6ecc88a98a374c59.jpg", 
+    "description": "This is Inline Channel Messages Search Bot by @Am_RoBots",
     "keywords": [
         "telegram",
         "channel",
@@ -9,9 +9,9 @@
         "search",
         "bot"
     ],
-    "repository": "https://github.com/KGN-BOTS/mdisk-Search-Bot",
-    "website": "https://telegram.dog/KGN_OFFICIAL",
-    "success_url": "http://t.me/Samantha_Ruth_RoBot",
+    "repository": "https://github.com/8769ANURAG",
+    "website": "https://t.me/MOVIES_ZILAA",
+    "success_url": "https://t.me/sources_cods",
     "env": {
         "API_ID": {
             "description": "Get this value from my.telegram.org"
@@ -20,7 +20,7 @@
             "description": "Get this value from my.telegram.org"
         },
         "USER_SESSION_STRING": {
-            "description": "Get this from @KGN_STRING_BOT"
+            "description": "Get this from @AnuragB8_Bot"
         },
         "BOT_SESSION_NAME": {
             "description": "Any Session Name for Bot."
