@@ -50,14 +50,7 @@ async def help_handler(_, event: Message):
 async def inline_handlers(_, event: Message):
     if event.text == '/start':
         return
-    answers = f'**📂 Searching For 🔎 {event.text} \nNo Results Found For {event.text} \n\nType Only Movie Name 💬\nCheck Spelling On Google 🔍\n\n**'
-	if isinstance(response, Exception):
-        traceback.print_exc()
-        try: await editable.edit("Failed",
-        reply_markup=InlineKeyboardMarkup([
-            [InlineKeyboardButton("Click To Check Spelling✅", url="http://www.google.com/search?q=%20")],
-	    [InlineKeyboardButton("Click To Check Release Date🗓️", url="http://www.google.com/search?q=%20%20%20")]
-        ])
+    answers = f'**📂 Searching For 🔎 {event.text} \nNo Results Found For {event.text} \n\nType Only Movie Name 💬\nCheck Spelling On Google 🔍\n\n**'	
     async for message in User.search_messages(chat_id=Config.CHANNEL_ID, limit=50, query=event.text):
         if message.text:
             thumb = None
