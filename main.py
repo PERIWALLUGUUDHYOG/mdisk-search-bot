@@ -49,11 +49,26 @@ async def help_handler(_, event: Message):
 @Bot.on_message(filters.incoming)
 async def inline_handlers(_, event: Message):
     if event.text == '/start':
-        return
-    answers = f'**📂 Searching For 🔎 {event.text} \nNo Results Found For {event.text} \n\nType Only Movie Name 💬\nCheck Spelling On Google 🔍\n\n**'	
+	answers = list()
+    if event.query == "":
+        answers.append(
+            InlineQueryResultArticle(
+                title="This is Inline BotList Search Bot 🔍",
+                description="You Can Search All Bots Available On TeleGram.",
+                thumb_url="https://telegra.ph/file/0242d4a31893317806277.jpg", 
+                input_message_content=InputTextMessageContent(
+                    message_text="A dream does not become reality through magic; it takes sweat, determination, and hard work."
+
+                                  "<a>Google || http://www.google.com/search?q=%20</a>"
+
+                                  "<a>🔴 YouTube Channel :</a>",
+                    disable_web_page_preview=True
+                ),
+      #  return
+  #  answers = f'**📂 Searching For 🔎 {event.text} \nNo Results Found For {event.text} \n\nType Only Movie Name 💬\nCheck Spelling On Google 🔍\n\n**'	
     async for message in User.search_messages(chat_id=Config.CHANNEL_ID, limit=50, query=event.text):
         if message.text:
-            thumb = None
+            thumb = True
             f_text = message.text
             msg_text = message.text.html
             if "|||" in message.text:
