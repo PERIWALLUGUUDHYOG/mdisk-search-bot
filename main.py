@@ -50,16 +50,20 @@ async def help_handler(_, event: Message):
 async def inline_handlers(_, event: Message):
     if event.text == '/start':
         return
-    answers = f'**📂 Results For ➠ {event.text} \n\n▰▱▰▱▰▱▰▱▰▱▰▱▰▱\n➠ Please Type Correct Spelling.✍️\n➠ Add Year For Better Result.🗓️\n▰▱▰▱▰▱▰▱▰▱▰▱▰▱\n\n**'
+    answers = f'**📂 Searching For 🔎 {event.text} \nNo Results Found For {event.text} \n\nType Only Movie Name 💬\nCheck Spelling On Google 🔍\n\n**', quote=True,
+	                         reply_markup=InlineKeyboardMarkup([
+                                     [InlineKeyboardButton("Click To Check Spelling✅", url="http://www.google.com/search?q=%20")],
+				     [InlineKeyboardButton("Click To Check Release Date🗓️", url="http://www.google.com/search?q=%20%20%20")]
+                                 ]))
     async for message in User.search_messages(chat_id=Config.CHANNEL_ID, limit=50, query=event.text):
         if message.text:
-            thumb = True
+            thumb = None
             f_text = message.text
             msg_text = message.text.html
             if "|||" in message.text:
                 f_text = message.text.split("|||", 1)[0]
                 msg_text = message.text.html.split("|||", 1)[0]
-            answers += f'**🍿 Title ➠ ' + '' + f_text.split("\n", 1)[0] + '' + '\n\n📜 About ➠ ' + '' + f_text.split("\n", 2)[-1] + ' \n\n**'
+            answers += f'**Click Here 👇 For "{message.text}" \n\n🍿🎬 ' + '' + f_text.split("\n", 1)[0] + '' + '\n🍿🎬 CLICK ME FOR RESULTS ' + '' + f_text.split("\n", 2)[-1] + ' \n\n**'
     try:
         await event.reply_text(
             answers
