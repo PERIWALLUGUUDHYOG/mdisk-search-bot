@@ -54,7 +54,7 @@ async def inline_handlers(_, event: Message):
 	                         reply_markup=InlineKeyboardMarkup([
                                      [InlineKeyboardButton("Click To Check Spelling✅", url="http://www.google.com/search?q=%20")],
 				     [InlineKeyboardButton("Click To Check Release Date🗓️", url="http://www.google.com/search?q=%20%20%20")]
-                                 ]))
+                                 ])
     async for message in User.search_messages(chat_id=Config.CHANNEL_ID, limit=50, query=event.text):
         if message.text:
             thumb = None
