@@ -50,9 +50,9 @@ async def inline_handlers(_, event: Message):
     if event.text == '/start':
         return
     answers = f'**Searching For{event.text} 🔍**'	
-    async for message in User.search_messages(chat_id=Config.CHANNEL_ID, limit=50, query=event.text):
+    async for message in User.search_messages(chat_id=Config.CHANNEL_ID, limit=10, query=event.text):
         if message.text:
-            thumb = None
+            thumb = False
             f_text = message.text
             msg_text = message.text.html
             if "|||" in message.text:
@@ -65,7 +65,7 @@ async def inline_handlers(_, event: Message):
         )
         print(f"[{Config.BOT_SESSION_NAME}] - Answered Successfully - {event.from_user.first_name}")
         await asyncio.sleep(30)
-        await msg.delete()
+        await msg.delete(10)
     except:
         print(f"[{Config.BOT_SESSION_NAME}] - Failed to Answer - {event.from_user.first_name}")
 
